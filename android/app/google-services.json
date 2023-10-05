@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "473196022938",
+    "project_id": "eval2-dsw22",
+    "storage_bucket": "eval2-dsw22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473196022938:android:032ee394073e84b7d5e323",
+        "android_client_info": {
+          "package_name": "com.GuillenRocioitca.eval2_dsw22"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoHCAA76vvRDVsxJ6JvWgxmxbr_RKUHc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
