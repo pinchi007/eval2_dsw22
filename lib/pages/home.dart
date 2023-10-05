@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:eval2_dsw22/pages/Consulta.dart';
+import 'package:eval2_dsw22/pages/AcercaDe.dart';
+import 'package:eval2_dsw22/pages/Registrar.dart';
 
 class home extends StatefulWidget {
   @override
