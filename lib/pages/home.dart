@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:eval2_dsw22/pages/Consulta.dart';
 import 'package:eval2_dsw22/pages/AcercaDe.dart';
+import 'package:eval2_dsw22/pages/Consulta.dart';
 import 'package:eval2_dsw22/pages/Registrar.dart';
+import 'package:eval2_dsw22/pages/login_page.dart';
+import 'package:flutter/material.dart';
 
 class home extends StatefulWidget {
   @override
@@ -19,6 +20,8 @@ class homeState extends State<home> {
         return Registro();
       case 2:
         return Consulta();
+       case 3:
+        return LoginPage();
     }
   }
 
@@ -90,6 +93,12 @@ class homeState extends State<home> {
               style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(2);
+                }),
+                 ListTile(
+                title: const Text('login',
+              style: TextStyle(fontWeight: FontWeight.bold)),
+                onTap: () {
+                  _onSelectItemDrawer(3);
                 }),
             Divider(color: Colors.black),
           ],
