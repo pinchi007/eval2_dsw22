@@ -1,6 +1,9 @@
+import 'package:eval2_dsw22/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'pages/home.dart';
+import 'pages/sing_up_auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +25,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 0, 217, 255)),
         useMaterial3: true,
       ),
-      home: home(),
+      initialRoute: "/login",
+      routes: {
+        "/":(context) => home(),
+        "/login":(context) => const LoginPage(),
+        "/signup":(context) => const SignUpPage(),
+      },
     );
   }
 }
