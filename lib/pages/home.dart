@@ -38,30 +38,25 @@ class homeState extends State<Home> {
     });
   }
   
-  void _alertSuccess (){
-  QuickAlert.show(
-    context: context,
-    type: QuickAlertType. confirm
-    );
-}
 
-void _aleertClose (){
+void _alertClose (){
   QuickAlert.show(
 context: context,
 type: QuickAlertType.confirm,
-text: 'desea salir de esta  cosa',
+text: 'desea salir de esta  cuenta',
 confirmBtnText: 'aceptar',
 cancelBtnText: 'cancelar',
-barrierDismissible: true,
+barrierDismissible: false,
 cancelBtnTextStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
 confirmBtnColor: Colors.green,
 onConfirmBtnTap: () {
   FirebaseAuth.instance.signOut();
-  Navigator.pushNamed(context, "/Login");
+  Navigator.pushNamed(context, "/login");
 },
 onCancelBtnTap: (){
   Navigator.of(context).pop();
-},
+
+}, 
 );
 }
 
@@ -71,27 +66,21 @@ onCancelBtnTap: (){
       appBar: AppBar(
         backgroundColor: Colors.blue[200],
         title: Text('EVALUACIÓN 2'),
-        leading: Builder(
-          builder: (BuildContext){
-            return IconButton(
-              icon: const Icon(Icons.person_2),
-              onPressed: () {
-                _alertSuccess();
-              },
-            );
-          },
-        ),
         actions: [
           IconButton(
             onPressed: (){
               FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, "/Login");
+              Navigator.pushNamed(context, "/login");
+              _alertClose();
               
             },
             icon: const Icon(Icons.close),
+  
             )
         ],
       ),
+
+
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
