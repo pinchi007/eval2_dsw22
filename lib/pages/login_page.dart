@@ -131,19 +131,22 @@ class _LoginPageState extends State<LoginPage> {
   void _signIn() async {
     String email = _emailController.text;
     String password = _passwordController.text;
+    print(email);
+    print(password);
     User? user = await _auth.signInWithEmailAndPassword(email, password);
     if (user != null) {
       print("Login Satisfactorio!!!");
       //Navigator.pushNamed(context, "/");
-      Navigator.pushReplacementNamed(context, "");
+      Navigator.pushReplacementNamed(context, "/home");
       setState(() {
         mensaje = "";
-      });
+      }); 
     } else {
+      //print("hola");
       setState(() {
         mensaje = "No se encontro el usuario especificado";
-      });
-    }
+      }); 
+    } 
   }
 
   //Creando widget con paso de parametros para personalizar

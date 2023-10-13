@@ -121,6 +121,8 @@ class _SignUpPageState extends State<SignUpPage> {
     String username = _usernameController.text;
     String email = _emailController.text;
     String password = _passwordController.text;
+    print(email);
+    print(username);
     User? user = await _auth.signUpWithEmailAndPassword(email, password);
     if (user != null) {
       print("Usuario agregado satisfactoriamente.");

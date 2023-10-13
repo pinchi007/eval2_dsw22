@@ -2,15 +2,20 @@ import 'package:eval2_dsw22/pages/AcercaDe.dart';
 import 'package:eval2_dsw22/pages/Consulta.dart';
 import 'package:eval2_dsw22/pages/Registrar.dart';
 import 'package:eval2_dsw22/pages/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 
-class home extends StatefulWidget {
+class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
-  State<home> createState() => homeState();
+  State<Home> createState() => homeState();
 }
 
-class homeState extends State<home> {
+class homeState extends State<Home> {
   int ItemDrawer = 0;
 
   _getDrawerItem(int position) {
@@ -32,8 +37,33 @@ class homeState extends State<home> {
       ItemDrawer = pos;
     });
   }
-
   
+  void _alertSuccess (){
+  QuickAlert.show(
+    context: context,
+    type: QuickAlertType. confirm
+    );
+}
+
+void _aleertClose (){
+  QuickAlert.show(
+context: context,
+type: QuickAlertType.confirm,
+text: 'desea salir de esta  cosa',
+confirmBtnText: 'aceptar',
+cancelBtnText: 'cancelar',
+barrierDismissible: true,
+cancelBtnTextStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+confirmBtnColor: Colors.green,
+onConfirmBtnTap: () {
+  FirebaseAuth.instance.signOut();
+  Navigator.pushNamed(context, "/Login");
+},
+onCancelBtnTap: (){
+  Navigator.of(context).pop();
+},
+);
+}
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +71,26 @@ class homeState extends State<home> {
       appBar: AppBar(
         backgroundColor: Colors.blue[200],
         title: Text('EVALUACIÓN 2'),
+        leading: Builder(
+          builder: (BuildContext){
+            return IconButton(
+              icon: const Icon(Icons.person_2),
+              onPressed: () {
+                _alertSuccess();
+              },
+            );
+          },
+        ),
+        actions: [
+          IconButton(
+            onPressed: (){
+              FirebaseAuth.instance.signOut();
+              Navigator.pushNamed(context, "/Login");
+              
+            },
+            icon: const Icon(Icons.close),
+            )
+        ],
       ),
       drawer: Drawer(
         child: ListView(

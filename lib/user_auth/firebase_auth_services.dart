@@ -19,7 +19,7 @@ class FirebaseAuthService{
   //Metodo para loquearme.
   Future<User?> signInWithEmailAndPassword(String email, String password) async {
     try {
-      UserCredential credential = await _auth.createUserWithEmailAndPassword
+      UserCredential credential = await _auth.signInWithEmailAndPassword
       (email: email, password: password);
       return credential.user;
     }catch (e){
