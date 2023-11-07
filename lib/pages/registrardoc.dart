@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Registros extends StatelessWidget {
-  Future<void> agregarProducto(
-    String idproducto,
+class RegistroDo extends StatelessWidget {
+  Future<void> agregarDoctor(
+    String idDoctor,
     String Nombre,
     String Apellido,
-    String Observacion,
-    String Direccion,
+    String Especialidad,
+    String Correo,
+    String Numero,
   ) async {
     //cambiar el nombre tabla por si se copia el codigo antes para agregar campos para una nuevo agregar
-    await FirebaseFirestore.instance.collection('tb_productos').add({
-      "idproducto": idproducto,
-      "nombre": Nombre,
+    await FirebaseFirestore.instance.collection('tb_doctor').add({
+      "idDoctor": idDoctor,
+      "Nombre": Nombre,
       "Apellido": Apellido,
-      "Observacion": Observacion,
-      "Direccion": Direccion
+      "Especialidad": Especialidad,
+      "Correo": Correo,
+      "Numero": Numero,
     });
   }
 
@@ -23,8 +25,9 @@ class Registros extends StatelessWidget {
   TextEditingController IdController = TextEditingController();
   TextEditingController NombreController = TextEditingController();
   TextEditingController ApellidoController = TextEditingController();
-  TextEditingController ObservacionController = TextEditingController();
-  TextEditingController DireccionController = TextEditingController();
+  TextEditingController EspecialidadController = TextEditingController();
+  TextEditingController CorreoController = TextEditingController();
+  TextEditingController NumeroController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class Registros extends StatelessWidget {
             children: [
               const SizedBox(height: 15),
               const Text(
-                'Registrar Pacientes',
+                'Registrar Doctores',
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
@@ -101,7 +104,7 @@ class Registros extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               TextField(
-                controller: ObservacionController,
+                controller: CorreoController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
@@ -116,12 +119,12 @@ class Registros extends StatelessWidget {
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'Observacion',
-                    hintText: 'Agregar Observaciones'),
+                    labelText: 'Correo',
+                    hintText: 'Agregar Correo'),
               ),
               const SizedBox(height: 15),
               TextField(
-                controller: DireccionController,
+                controller: EspecialidadController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
@@ -136,10 +139,32 @@ class Registros extends StatelessWidget {
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'Direccion',
-                    hintText: 'Agregar Direccion de Recidencia'),
+                    labelText: 'Especialidad',
+                    hintText: 'Agregar  Especialidad'),
               ),
               const SizedBox(height: 15),
+
+              TextField(
+                controller: NumeroController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.lightBlue[50],
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'img/id.png',
+                        width: 5,
+                        height: 5,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    labelText: 'Numero del Doctor',
+                    hintText: 'Ingrese el Numero del Doctor'),
+              ),
+              const SizedBox(height: 15),
+
               //agregar campo desde el textfield hasta el sizebox para crear el campo de controlador
               ElevatedButton(
                 onPressed: () async {
@@ -147,8 +172,9 @@ class Registros extends StatelessWidget {
                   if (IdController.text.isEmpty ||
                       NombreController.text.isEmpty ||
                       ApellidoController.text.isEmpty ||
-                      ObservacionController.text.isEmpty ||
-                      DireccionController.text.isEmpty) {
+                      NumeroController.text.isEmpty ||
+                      CorreoController.text.isEmpty ||
+                      EspecialidadController.text.isEmpty) {
                     // Muestra un mensaje de error si algún campo está vacío
                     showDialog(
                       context: context,
@@ -174,19 +200,20 @@ class Registros extends StatelessWidget {
 
                   try {
                     //agregar controlador creado
-                    await agregarProducto(
+                    await agregarDoctor(
                         IdController.text,
                         NombreController.text,
                         ApellidoController.text,
-                        ObservacionController.text,
-                        DireccionController.text);
+                        EspecialidadController.text,
+                        NumeroController.text,
+                        CorreoController.text);
 
                     // Muestra un aviso de éxito después de agregar el producto
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          content: Text('Producto agregado correctamente.'),
+                          content: Text('Nuevo Doctor agregado correctamente.'),
                           actions: [
                             ElevatedButton(
                               onPressed: () {
@@ -202,13 +229,14 @@ class Registros extends StatelessWidget {
 
                     // Realiza el registro y luego limpia los campos
                     //agregar controlador creado
-                    Registros();
+                    RegistroDo();
 
                     IdController.clear();
                     NombreController.clear();
                     ApellidoController.clear();
-                    ObservacionController.clear();
-                    DireccionController.clear();
+                    CorreoController.clear();
+                    EspecialidadController.clear();
+                    NumeroController.clear();
                   } catch (e) {
                     // Maneja cualquier excepción que pueda ocurrir al agregar el producto.
                     print("Error al agregar el producto: $e");

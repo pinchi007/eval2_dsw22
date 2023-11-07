@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class Consulta extends StatefulWidget {
+class ConsultaPac extends StatefulWidget {
   @override
-  State<Consulta> createState() => _ConsultaState();
+  State<ConsultaPac> createState() => _ConsultaState();
 }
 
-class _ConsultaState extends State<Consulta> {
+class _ConsultaState extends State<ConsultaPac> {
   void getProductos() async {
     CollectionReference collectionReference =
         FirebaseFirestore.instance.collection("tb_productos");
