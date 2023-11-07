@@ -9,10 +9,10 @@ class Consulta extends StatefulWidget {
 class _ConsultaState extends State<Consulta> {
   void getProductos() async {
     CollectionReference collectionReference =
-    FirebaseFirestore.instance.collection("tb_productos");
+        FirebaseFirestore.instance.collection("tb_productos");
     QuerySnapshot mensaje = await collectionReference.get();
-    if (mensaje.docs.length != 0){
-      for (var doc in mensaje.docs){
+    if (mensaje.docs.length != 0) {
+      for (var doc in mensaje.docs) {
         print(doc.data());
       }
     }
@@ -21,10 +21,10 @@ class _ConsultaState extends State<Consulta> {
   Future<List> getMensajes() async {
     List chats = [];
     CollectionReference collectionReference =
-    FirebaseFirestore.instance.collection("tb_productos");
+        FirebaseFirestore.instance.collection("tb_productos");
     QuerySnapshot mensaje = await collectionReference.get();
-    if (mensaje.docs.length != 0){
-      for (var doc in mensaje.docs){
+    if (mensaje.docs.length != 0) {
+      for (var doc in mensaje.docs) {
         print(doc.data());
         chats.add(doc.data());
       }
@@ -37,7 +37,11 @@ class _ConsultaState extends State<Consulta> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlue[50],
-        title: Center(child: Text('Consultar Datos', style: TextStyle(fontWeight: FontWeight.bold),)),
+        title: Center(
+            child: Text(
+          'Consultar Datos',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        )),
       ),
       body: FutureBuilder(
         future: getMensajes(),
@@ -56,8 +60,8 @@ class _ConsultaState extends State<Consulta> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Nombre: ${producto["nombre"]}"),
-                        Text("Precio: ${producto["precio"]}"),
-                        Text("Stock: ${producto["stock"]}"),
+                        Text("Apellidos: ${producto["Apellido"]}"),
+                        Text("Observacion: ${producto["Observacion"]}"),
                       ],
                     ),
                   ),
@@ -70,11 +74,6 @@ class _ConsultaState extends State<Consulta> {
             );
           }
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: getProductos,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

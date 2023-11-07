@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -26,7 +25,7 @@ class homeState extends State<Home> {
         return Registro();
       case 2:
         return Consulta();
-       case 3:
+      case 3:
         return LoginPage();
     }
   }
@@ -37,50 +36,45 @@ class homeState extends State<Home> {
       ItemDrawer = pos;
     });
   }
-  
 
-void _alertClose (){
-  QuickAlert.show(
-context: context,
-type: QuickAlertType.confirm,
-text: 'desea salir de esta  cuenta',
-confirmBtnText: 'aceptar',
-cancelBtnText: 'cancelar',
-barrierDismissible: false,
-cancelBtnTextStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-confirmBtnColor: Colors.green,
-onConfirmBtnTap: () {
-  FirebaseAuth.instance.signOut();
-  Navigator.pushNamed(context, "/login");
-},
-onCancelBtnTap: (){
-  Navigator.of(context).pop();
-
-}, 
-);
-}
+  void _alertClose() {
+    QuickAlert.show(
+      context: context,
+      type: QuickAlertType.confirm,
+      text: 'desea salir de esta  cuenta',
+      confirmBtnText: 'aceptar',
+      cancelBtnText: 'cancelar',
+      barrierDismissible: false,
+      cancelBtnTextStyle:
+          TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+      confirmBtnColor: Colors.green,
+      onConfirmBtnTap: () {
+        FirebaseAuth.instance.signOut();
+        Navigator.pushNamed(context, "/login");
+      },
+      onCancelBtnTap: () {
+        Navigator.of(context).pop();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[200],
-        title: Text('EVALUACIÓN 2'),
+        title: Text('MARRC'),
         actions: [
           IconButton(
-            onPressed: (){
+            onPressed: () {
               FirebaseAuth.instance.signOut();
               Navigator.pushNamed(context, "/login");
               _alertClose();
-              
             },
             icon: const Icon(Icons.close),
-  
-            )
+          )
         ],
       ),
-
-
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -92,53 +86,60 @@ onCancelBtnTap: (){
               child: const Center(
                 child: Text('NAVEGACIÓN',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold
-                    )),
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold)),
               ),
             ),
             Divider(color: Colors.black),
             ListTile(
               leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset('img/acercaDe.png',
-                    width: 35,
-                    height: 35,),
-                  ),
-              title: const Text('Acerca de nosotros',
-              style: TextStyle(fontWeight: FontWeight.bold),),
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  'img/acercaDe.png',
+                  width: 35,
+                  height: 35,
+                ),
+              ),
+              title: const Text(
+                'Acerca de nosotros',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               onTap: () {
                 _onSelectItemDrawer(0);
               },
             ),
             ListTile(
                 leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset('img/registrar.png',
-                    width: 35,
-                    height: 35,),
-                  ),
-                title: const Text('Registrar productos',
-              style: TextStyle(fontWeight: FontWeight.bold)),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.border_color),
+                ),
+                title: const Text('Registrar Pacientes',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(1);
                 }),
             ListTile(
                 leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset('img/consultar.png',
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    'img/consultar.png',
                     width: 35,
-                    height: 35,),
+                    height: 35,
                   ),
-                title: const Text('Consultar productos',
-              style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                title: const Text('Consultar Pacientes',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(2);
                 }),
-                 ListTile(
-                title: const Text('login',
-              style: TextStyle(fontWeight: FontWeight.bold)),
+            ListTile(
+                leading: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.login),
+                ),
+                title: const Text('Login',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(3);
                 }),

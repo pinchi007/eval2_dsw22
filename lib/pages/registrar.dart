@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Registro extends StatelessWidget {
-  Future<void> agregarProducto(
-      String idproducto, String nombre, String precio, String stock) async {
+  Future<void> agregarProducto(String idproducto, String nombre,
+      String Apellido, String Observacion) async {
     await FirebaseFirestore.instance.collection('tb_productos').add({
       "idproducto": idproducto,
       "nombre": nombre,
-      "precio": precio,
-      "stock": stock
+      "Apellido": Apellido,
+      "Observacion": Observacion
     });
   }
 
   TextEditingController IdController = TextEditingController();
   TextEditingController NombreController = TextEditingController();
-  TextEditingController PrecioController = TextEditingController();
-  TextEditingController StockController = TextEditingController();
+  TextEditingController ApellidoController = TextEditingController();
+  TextEditingController ObservacionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class Registro extends StatelessWidget {
             children: [
               const SizedBox(height: 15),
               const Text(
-                'Registrar productos',
+                'Registrar Pacientes',
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
@@ -48,7 +48,7 @@ class Registro extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'ID',
-                    hintText: 'Ingrese el ID del producto'),
+                    hintText: 'Ingrese el ID del Paciente'),
               ),
               const SizedBox(height: 15),
               TextField(
@@ -60,33 +60,40 @@ class Registro extends StatelessWidget {
                     prefixIcon: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(
-                        'img/nombre.png',
+                        'img/persona.png',
                         width: 5,
                         height: 5,
                       ),
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'Nombre',
-                    hintText: 'Ingrese el nombre del producto'),
+                    labelText: 'Nombres',
+                    hintText: 'Ingrese el nombre del Paciente'),
               ),
               const SizedBox(height: 15),
               TextField(
-                controller: PrecioController,
-                keyboardType: TextInputType.number,
+                controller: ApellidoController,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.lightBlue[50],
-                    prefixIcon: const Icon(Icons.attach_money),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'img/pers.png',
+                        width: 5,
+                        height: 5,
+                      ),
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'Precio',
-                    hintText: 'Ingrese el precio del producto'),
+                    labelText: 'Apellidos',
+                    hintText: 'Ingrese el Apellidos del Paciente'),
               ),
               const SizedBox(height: 15),
               TextField(
-                controller: StockController,
-                keyboardType: TextInputType.number,
+                controller: ObservacionController,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.lightBlue[50],
@@ -100,8 +107,8 @@ class Registro extends StatelessWidget {
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'Stock',
-                    hintText: 'Ingrese el stock del producto'),
+                    labelText: 'Observacion',
+                    hintText: 'Agregar Observaciones'),
               ),
               const SizedBox(height: 15),
               ElevatedButton(
@@ -109,8 +116,8 @@ class Registro extends StatelessWidget {
                   // Verifica si alguno de los campos está vacío
                   if (IdController.text.isEmpty ||
                       NombreController.text.isEmpty ||
-                      PrecioController.text.isEmpty ||
-                      StockController.text.isEmpty) {
+                      ApellidoController.text.isEmpty ||
+                      ObservacionController.text.isEmpty) {
                     // Muestra un mensaje de error si algún campo está vacío
                     showDialog(
                       context: context,
@@ -138,17 +145,15 @@ class Registro extends StatelessWidget {
                     await agregarProducto(
                         IdController.text,
                         NombreController.text,
-                        PrecioController.text,
-                        StockController.text);
+                        ApellidoController.text,
+                        ObservacionController.text);
 
                     // Muestra un aviso de éxito después de agregar el producto
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          
-                          content:
-                              Text('Producto agregado correctamente.'),
+                          content: Text('Producto agregado correctamente.'),
                           actions: [
                             ElevatedButton(
                               onPressed: () {
@@ -167,8 +172,8 @@ class Registro extends StatelessWidget {
 
                     IdController.clear();
                     NombreController.clear();
-                    PrecioController.clear();
-                    StockController.clear();
+                    ApellidoController.clear();
+                    ObservacionController.clear();
                   } catch (e) {
                     // Maneja cualquier excepción que pueda ocurrir al agregar el producto.
                     print("Error al agregar el producto: $e");
