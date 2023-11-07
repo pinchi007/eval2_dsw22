@@ -59,9 +59,11 @@ class _ConsultaState extends State<Consulta> {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        //agregar campo para mostrarlo en la consulta
                         Text("Nombre: ${producto["nombre"]}"),
                         Text("Apellidos: ${producto["Apellido"]}"),
                         Text("Observacion: ${producto["Observacion"]}"),
+                        Text("Direccion: ${producto["Direccion"]}")
                       ],
                     ),
                   ),

@@ -2,20 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Registro extends StatelessWidget {
-  Future<void> agregarProducto(String idproducto, String nombre,
-      String Apellido, String Observacion) async {
+  Future<void> agregarProducto(
+    String idproducto,
+    String Nombre,
+    String Apellido,
+    String Observacion,
+    String Direccion,
+  ) async {
     await FirebaseFirestore.instance.collection('tb_productos').add({
       "idproducto": idproducto,
-      "nombre": nombre,
+      "nombre": Nombre,
       "Apellido": Apellido,
-      "Observacion": Observacion
+      "Observacion": Observacion,
+      "Direccion": Direccion
     });
   }
 
+//agregar controlador para añadir campos
   TextEditingController IdController = TextEditingController();
   TextEditingController NombreController = TextEditingController();
   TextEditingController ApellidoController = TextEditingController();
   TextEditingController ObservacionController = TextEditingController();
+  TextEditingController DireccionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -111,13 +119,35 @@ class Registro extends StatelessWidget {
                     hintText: 'Agregar Observaciones'),
               ),
               const SizedBox(height: 15),
+              TextField(
+                controller: DireccionController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.lightBlue[50],
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'img/stock.png',
+                        width: 5,
+                        height: 5,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    labelText: 'Direccion',
+                    hintText: 'Agregar Direccion de Recidencia'),
+              ),
+              const SizedBox(height: 15),
+              //agregar campo desde el textfield hasta el sizebox para crear el campo de controlador
               ElevatedButton(
                 onPressed: () async {
                   // Verifica si alguno de los campos está vacío
                   if (IdController.text.isEmpty ||
                       NombreController.text.isEmpty ||
                       ApellidoController.text.isEmpty ||
-                      ObservacionController.text.isEmpty) {
+                      ObservacionController.text.isEmpty ||
+                      DireccionController.text.isEmpty) {
                     // Muestra un mensaje de error si algún campo está vacío
                     showDialog(
                       context: context,
@@ -142,11 +172,13 @@ class Registro extends StatelessWidget {
                   }
 
                   try {
+                    //agregar controlador creado
                     await agregarProducto(
                         IdController.text,
                         NombreController.text,
                         ApellidoController.text,
-                        ObservacionController.text);
+                        ObservacionController.text,
+                        DireccionController.text);
 
                     // Muestra un aviso de éxito después de agregar el producto
                     showDialog(
@@ -168,12 +200,14 @@ class Registro extends StatelessWidget {
                     );
 
                     // Realiza el registro y luego limpia los campos
+                    //agregar controlador creado
                     Registro();
 
                     IdController.clear();
                     NombreController.clear();
                     ApellidoController.clear();
                     ObservacionController.clear();
+                    DireccionController.clear();
                   } catch (e) {
                     // Maneja cualquier excepción que pueda ocurrir al agregar el producto.
                     print("Error al agregar el producto: $e");
