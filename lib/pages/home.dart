@@ -1,12 +1,14 @@
 import 'package:eval2_dsw22/pages/AcercaDe.dart';
 import 'package:eval2_dsw22/pages/Consulta.dart';
 import 'package:eval2_dsw22/pages/Registrar.dart';
+import 'package:eval2_dsw22/pages/consultadoc.dart';
 import 'package:eval2_dsw22/pages/login_page.dart';
 import 'package:eval2_dsw22/pages/registrardoc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
+
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -30,6 +32,8 @@ class homeState extends State<Home> {
         return LoginPage();
       case 4:
         return RegistroDo();
+        case 5: 
+        return Consultadoc();
     }
   }
 
@@ -136,6 +140,7 @@ class homeState extends State<Home> {
                 onTap: () {
                   _onSelectItemDrawer(2);
                 }),
+                
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -155,6 +160,20 @@ class homeState extends State<Home> {
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(4);
+                }),
+                 ListTile(
+                leading: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    'img/consultar.png',
+                    width: 35,
+                    height: 35,
+                  ),
+                ),
+                title: const Text('Consultar Doctores',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                onTap: () {
+                  _onSelectItemDrawer(2);
                 }),
             Divider(color: Colors.black),
           ],
