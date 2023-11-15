@@ -60,7 +60,7 @@ class RegistroDo extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'ID',
-                    hintText: 'Ingrese el ID del Paciente'),
+                    hintText: 'Ingrese el ID del Doctor'),
               ),
               const SizedBox(height: 15),
               TextField(
@@ -80,7 +80,7 @@ class RegistroDo extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Nombres',
-                    hintText: 'Ingrese el nombre del Paciente'),
+                    hintText: 'Ingrese el nombre del Doctor'),
               ),
               const SizedBox(height: 15),
               TextField(
@@ -100,7 +100,7 @@ class RegistroDo extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Apellidos',
-                    hintText: 'Ingrese el Apellidos del Paciente'),
+                    hintText: 'Ingrese el Apellidos del Doctor'),
               ),
               const SizedBox(height: 15),
               TextField(

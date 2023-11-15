@@ -140,13 +140,13 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacementNamed(context, "/home");
       setState(() {
         mensaje = "";
-      }); 
+      });
     } else {
       //print("hola");
       setState(() {
         mensaje = "No se encontro el usuario especificado";
-      }); 
-    } 
+      });
+    }
   }
 
   //Creando widget con paso de parametros para personalizar

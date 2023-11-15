@@ -1,6 +1,7 @@
 import 'package:eval2_dsw22/pages/AcercaDe.dart';
 import 'package:eval2_dsw22/pages/Consulta.dart';
 import 'package:eval2_dsw22/pages/Registrar.dart';
+import 'package:eval2_dsw22/pages/consultadoc.dart';
 import 'package:eval2_dsw22/pages/login_page.dart';
 import 'package:eval2_dsw22/pages/registrardoc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,10 +27,11 @@ class homeState extends State<Home> {
         return Registros();
       case 2:
         return ConsultaPac();
-      case 3:
-        return LoginPage();
+
       case 4:
         return RegistroDo();
+      case 5:
+        return ConsultaDoc();
     }
   }
 
@@ -141,20 +143,20 @@ class homeState extends State<Home> {
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(Icons.login),
                 ),
-                title: const Text('Login',
+                title: const Text('Registrar Doctores',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
-                  _onSelectItemDrawer(3);
+                  _onSelectItemDrawer(4);
                 }),
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(Icons.login),
                 ),
-                title: const Text('Registrar Doctores',
+                title: const Text('Consultar Doctores',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
-                  _onSelectItemDrawer(4);
+                  _onSelectItemDrawer(5);
                 }),
             Divider(color: Colors.black),
           ],
