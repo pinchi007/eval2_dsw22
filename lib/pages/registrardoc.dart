@@ -48,15 +48,10 @@ class RegistroDo extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.lightBlue[50],
+                    fillColor: Colors.blueGrey[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/id.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.format_list_bulleted)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'ID',
@@ -68,15 +63,10 @@ class RegistroDo extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.lightBlue[50],
+                    fillColor: Colors.blueGrey[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/persona.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.person)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Nombres',
@@ -88,15 +78,10 @@ class RegistroDo extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.lightBlue[50],
+                    fillColor: Colors.blueGrey[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/pers.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.person)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Apellidos',
@@ -108,15 +93,10 @@ class RegistroDo extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.lightBlue[50],
+                    fillColor: Colors.blueGrey[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/stock.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.contact_mail)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Correo',
@@ -128,15 +108,10 @@ class RegistroDo extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.lightBlue[50],
+                    fillColor: Colors.blueGrey[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/stock.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.medical_services)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Especialidad',
@@ -149,15 +124,10 @@ class RegistroDo extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.lightBlue[50],
+                    fillColor: Colors.blueGrey[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/id.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.phone)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Numero del Doctor',
@@ -252,7 +222,7 @@ class RegistroDo extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.blue[200], // Color de fondo del botón
+                  primary: Colors.green[200], // Color de fondo del botón
                   shape: RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.circular(10), // Bordes redondeados
