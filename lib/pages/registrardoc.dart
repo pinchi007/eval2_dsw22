@@ -222,7 +222,7 @@ class RegistroDo extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green[200], // Color de fondo del botón
+                  primary: Colors.green[300], // Color de fondo del botón
                   shape: RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.circular(10), // Bordes redondeados

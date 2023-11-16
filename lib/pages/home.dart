@@ -68,7 +68,7 @@ class homeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[200],
+        backgroundColor: Colors.blueGrey[200],
         title: Text('MARRC'),
         actions: [
           IconButton(
@@ -87,17 +87,16 @@ class homeState extends State<Home> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue[200],
+                color: Colors.blueGrey[200],
               ),
               child: const Center(
-                child: Text('NAVEGACIÓN',
+                child: Text('PROYECTO FINAL',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 24,
                         fontWeight: FontWeight.bold)),
               ),
             ),
-            Divider(color: Colors.black),
             ListTile(
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -115,6 +114,7 @@ class homeState extends State<Home> {
                 _onSelectItemDrawer(0);
               },
             ),
+            Divider(color: Colors.black),
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -128,17 +128,14 @@ class homeState extends State<Home> {
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    'img/consultar.png',
-                    width: 35,
-                    height: 35,
-                  ),
+                  child: Icon(Icons.search),
                 ),
                 title: const Text('Consultar Pacientes',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(2);
                 }),
+            Divider(color: Colors.black),
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -149,10 +146,11 @@ class homeState extends State<Home> {
                 onTap: () {
                   _onSelectItemDrawer(3);
                 }),
+            Divider(color: Colors.black),
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.login),
+                  child: Icon(Icons.border_color),
                 ),
                 title: const Text('Registrar Doctores',
                     style: TextStyle(fontWeight: FontWeight.bold)),
@@ -162,11 +160,7 @@ class homeState extends State<Home> {
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    'img/consultar.png',
-                    width: 35,
-                    height: 35,
-                  ),
+                  child: Icon(Icons.search),
                 ),
                 title: const Text('Consultar Doctores',
                     style: TextStyle(fontWeight: FontWeight.bold)),

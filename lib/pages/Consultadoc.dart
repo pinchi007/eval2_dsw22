@@ -36,7 +36,7 @@ class _ConsultaState extends State<ConsultaDoc> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue[50],
+        backgroundColor: Colors.green[100],
         title: Center(
             child: Text(
           'Consultar Datos',

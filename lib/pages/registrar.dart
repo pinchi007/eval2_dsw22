@@ -47,13 +47,8 @@ class Registros extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.lightBlue[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/id.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.format_list_bulleted)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'ID',
@@ -67,13 +62,8 @@ class Registros extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.lightBlue[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/persona.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.person)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Nombres',
@@ -87,13 +77,8 @@ class Registros extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.lightBlue[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/pers.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.person)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Apellidos',
@@ -107,13 +92,8 @@ class Registros extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.lightBlue[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/stock.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.search)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Observacion',
@@ -127,13 +107,8 @@ class Registros extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.lightBlue[50],
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'img/stock.png',
-                        width: 5,
-                        height: 5,
-                      ),
-                    ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.house)),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Direccion',
@@ -224,7 +199,7 @@ class Registros extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.blue[200], // Color de fondo del botón
+                  primary: Colors.green[200], // Color de fondo del botón
                   shape: RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.circular(10), // Bordes redondeados
