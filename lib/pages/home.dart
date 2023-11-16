@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -28,15 +27,12 @@ class homeState extends State<Home> {
         return Registros();
       case 2:
         return ConsultaPac();
-
+      case 3:
+        return LoginPage();
       case 4:
         return RegistroDo();
-<<<<<<< HEAD
       case 5:
-=======
-        case 5: 
->>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
-        return Consultadoc();
+        return ConsultaDoc();
     }
   }
 
@@ -72,8 +68,8 @@ class homeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan[200],
-        title: Text('CAE'),
+        backgroundColor: Colors.blue[200],
+        title: Text('MARRC'),
         actions: [
           IconButton(
             onPressed: () {
@@ -91,10 +87,10 @@ class homeState extends State<Home> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.cyan[200],
+                color: Colors.blue[200],
               ),
               child: const Center(
-                child: Text('PROYECTO FINAL',
+                child: Text('NAVEGACIÓN',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 24,
@@ -119,11 +115,10 @@ class homeState extends State<Home> {
                 _onSelectItemDrawer(0);
               },
             ),
-            Divider(color: Colors.black),
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.edit),
+                  child: Icon(Icons.border_color),
                 ),
                 title: const Text('Registrar Pacientes',
                     style: TextStyle(fontWeight: FontWeight.bold)),
@@ -132,35 +127,39 @@ class homeState extends State<Home> {
                 }),
             ListTile(
                 leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(Icons.search)),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    'img/consultar.png',
+                    width: 35,
+                    height: 35,
+                  ),
+                ),
                 title: const Text('Consultar Pacientes',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(2);
                 }),
-<<<<<<< HEAD
-            Divider(color: Colors.black),
-=======
-                
->>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.edit),
+                  child: Icon(Icons.login),
+                ),
+                title: const Text('Login',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                onTap: () {
+                  _onSelectItemDrawer(3);
+                }),
+            ListTile(
+                leading: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.login),
                 ),
                 title: const Text('Registrar Doctores',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(4);
                 }),
-<<<<<<< HEAD
             ListTile(
-                leading: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.search),
-=======
-                 ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset(
@@ -168,16 +167,11 @@ class homeState extends State<Home> {
                     width: 35,
                     height: 35,
                   ),
->>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
                 ),
                 title: const Text('Consultar Doctores',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
-<<<<<<< HEAD
                   _onSelectItemDrawer(5);
-=======
-                  _onSelectItemDrawer(2);
->>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
                 }),
             Divider(color: Colors.black),
           ],
