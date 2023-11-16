@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -30,7 +31,11 @@ class homeState extends State<Home> {
 
       case 4:
         return RegistroDo();
+<<<<<<< HEAD
       case 5:
+=======
+        case 5: 
+>>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
         return Consultadoc();
     }
   }
@@ -134,7 +139,11 @@ class homeState extends State<Home> {
                 onTap: () {
                   _onSelectItemDrawer(2);
                 }),
+<<<<<<< HEAD
             Divider(color: Colors.black),
+=======
+                
+>>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -145,15 +154,30 @@ class homeState extends State<Home> {
                 onTap: () {
                   _onSelectItemDrawer(4);
                 }),
+<<<<<<< HEAD
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(Icons.search),
+=======
+                 ListTile(
+                leading: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    'img/consultar.png',
+                    width: 35,
+                    height: 35,
+                  ),
+>>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
                 ),
                 title: const Text('Consultar Doctores',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
+<<<<<<< HEAD
                   _onSelectItemDrawer(5);
+=======
+                  _onSelectItemDrawer(2);
+>>>>>>> bc980dfe5d2caaa6d260602d736452c73c766a34
                 }),
             Divider(color: Colors.black),
           ],
