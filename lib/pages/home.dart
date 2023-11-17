@@ -2,7 +2,7 @@ import 'package:eval2_dsw22/pages/AcercaDe.dart';
 import 'package:eval2_dsw22/pages/Consulta.dart';
 import 'package:eval2_dsw22/pages/Registrar.dart';
 import 'package:eval2_dsw22/pages/consultadoc.dart';
-import 'package:eval2_dsw22/pages/login_page.dart';
+import 'package:eval2_dsw22/pages/sing_up_auth.dart';
 import 'package:eval2_dsw22/pages/registrardoc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -26,9 +26,9 @@ class homeState extends State<Home> {
       case 1:
         return Registros();
       case 2:
-        return ConsultaPac();
+        return ConsultaPa();
       case 3:
-        return LoginPage();
+        return SignUpPage();
       case 4:
         return RegistroDo();
       case 5:
@@ -139,17 +139,6 @@ class homeState extends State<Home> {
             ListTile(
                 leading: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.login),
-                ),
-                title: const Text('Login',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                onTap: () {
-                  _onSelectItemDrawer(3);
-                }),
-            Divider(color: Colors.black),
-            ListTile(
-                leading: Padding(
-                  padding: const EdgeInsets.all(8.0),
                   child: Icon(Icons.border_color),
                 ),
                 title: const Text('Registrar Doctores',
@@ -166,6 +155,17 @@ class homeState extends State<Home> {
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
                   _onSelectItemDrawer(5);
+                }),
+            Divider(color: Colors.black),
+            ListTile(
+                leading: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.login),
+                ),
+                title: const Text('Agregar Cuenta',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                onTap: () {
+                  _onSelectItemDrawer(3);
                 }),
             Divider(color: Colors.black),
           ],

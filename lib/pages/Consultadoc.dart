@@ -20,6 +20,7 @@ class _ConsultaState extends State<ConsultaDoc> {
     }
   }
 
+//funcion Eliminar
   Future<void> deleteDoctor(String uid) async {
     try {
       await db.collection("tb_doctor").doc(uid).delete();
@@ -84,6 +85,8 @@ class _ConsultaState extends State<ConsultaDoc> {
                     bool result = await showDialog(
                       context: context,
                       builder: (context) {
+                        //Alerta de dialogo para eliminar y cancelar
+
                         return AlertDialog(
                           title: Text(
                             "¿Está seguro de querer eliminar a ${doctor?["Nombre"]}?",
@@ -122,6 +125,8 @@ class _ConsultaState extends State<ConsultaDoc> {
                     margin: EdgeInsets.all(8.0),
                     elevation: 4.0,
                     child: ListTile(
+                      //Consulta de datos
+
                       title: Text("ID: ${doctor?["idDoctor"]}"),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
