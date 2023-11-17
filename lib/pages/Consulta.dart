@@ -91,7 +91,7 @@ class _ConsultaState extends State<ConsultaPa> {
                     bool result = await showDialog(
                       context: context,
                       builder: (context) {
-                        //Alerta de dialogo para eliminar y cancelar
+                        //Alerta de dialogo para eliminar y cancelar con ventana
                         return AlertDialog(
                           title: Text(
                             "¿Está seguro de querer eliminar a ${productos?["nombre"]}?",
