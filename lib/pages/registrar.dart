@@ -7,6 +7,7 @@ class Registros extends StatelessWidget {
     String Nombre,
     String Apellido,
     String Observacion,
+    String Telefono,
     String Direccion,
   ) async {
     //cambiar el nombre tabla por si se copia el codigo antes para agregar campos para una nuevo agregar
@@ -15,6 +16,7 @@ class Registros extends StatelessWidget {
       "nombre": Nombre,
       "Apellido": Apellido,
       "Observacion": Observacion,
+      "Telefono": Telefono,
       "Direccion": Direccion
     });
   }
@@ -25,6 +27,7 @@ class Registros extends StatelessWidget {
   TextEditingController ApellidoController = TextEditingController();
   TextEditingController ObservacionController = TextEditingController();
   TextEditingController DireccionController = TextEditingController();
+  TextEditingController TelefonoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +104,21 @@ class Registros extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               TextField(
+                controller: TelefonoController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.lightBlue[50],
+                    prefixIcon: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.search)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    labelText: 'Telefono',
+                    hintText: 'Agregar Telefono'),
+              ),
+              const SizedBox(height: 15),
+              TextField(
                 controller: DireccionController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
@@ -123,6 +141,7 @@ class Registros extends StatelessWidget {
                       NombreController.text.isEmpty ||
                       ApellidoController.text.isEmpty ||
                       ObservacionController.text.isEmpty ||
+                      TelefonoController.text.isEmpty ||
                       DireccionController.text.isEmpty) {
                     // Muestra un mensaje de error si algún campo está vacío
                     showDialog(
@@ -154,6 +173,7 @@ class Registros extends StatelessWidget {
                         NombreController.text,
                         ApellidoController.text,
                         ObservacionController.text,
+                        TelefonoController.text,
                         DireccionController.text);
 
                     // Muestra un aviso de éxito después de agregar el producto
@@ -183,6 +203,7 @@ class Registros extends StatelessWidget {
                     NombreController.clear();
                     ApellidoController.clear();
                     ObservacionController.clear();
+                    TelefonoController.clear();
                     DireccionController.clear();
                   } catch (e) {
                     // Maneja cualquier excepción que pueda ocurrir al agregar el producto.
