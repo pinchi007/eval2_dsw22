@@ -140,6 +140,7 @@ class _ConsultaState extends State<ConsultaPa> {
                           Text("Direccion: ${productos?["Direccion"]}"),
                           Text("Observacion: ${productos?["Observacion"]}"),
                           Text("Telefono: ${productos?["Telefono"]}"),
+                          Text("Comentario: ${productos?["Comentario"]}"),
                         ],
                       ),
                     ),

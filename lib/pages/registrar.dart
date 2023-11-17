@@ -8,6 +8,7 @@ class Registros extends StatelessWidget {
     String Apellido,
     String Observacion,
     String Telefono,
+    String Comentario,
     String Direccion,
   ) async {
     //cambiar el nombre tabla por si se copia el codigo antes para agregar campos para una nuevo agregar
@@ -17,6 +18,7 @@ class Registros extends StatelessWidget {
       "Apellido": Apellido,
       "Observacion": Observacion,
       "Telefono": Telefono,
+      "Comentario": Comentario,
       "Direccion": Direccion
     });
   }
@@ -27,6 +29,7 @@ class Registros extends StatelessWidget {
   TextEditingController ApellidoController = TextEditingController();
   TextEditingController ObservacionController = TextEditingController();
   TextEditingController DireccionController = TextEditingController();
+  TextEditingController ComentarioController = TextEditingController();
   TextEditingController TelefonoController = TextEditingController();
 
   @override
@@ -119,6 +122,21 @@ class Registros extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               TextField(
+                controller: ComentarioController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.lightBlue[50],
+                    prefixIcon: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.search)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    labelText: 'Telefono',
+                    hintText: 'Agregar Telefono'),
+              ),
+              const SizedBox(height: 15),
+              TextField(
                 controller: DireccionController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
@@ -174,6 +192,7 @@ class Registros extends StatelessWidget {
                         ApellidoController.text,
                         ObservacionController.text,
                         TelefonoController.text,
+                        ComentarioController.text,
                         DireccionController.text);
 
                     // Muestra un aviso de éxito después de agregar el producto
